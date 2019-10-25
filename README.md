@@ -23,7 +23,7 @@ Optionally, double check that ShinyProxy works:
 sudo docker pull openanalytics/shinyproxy-demo
 
 # run shiny proxy container
-sudo docker run -it -v /var/run/docker.sock:/var/run/docker.sock --net sp-example-net -p 80:80 drugseqr.sp
+sudo docker run -it -v /var/run/docker.sock:/var/run/docker.sock --net sp-example-net -p 8080:8080 drugseqr.sp
 ```
 
-Navigate to http://localhost and check that the 'Hello Application' works. 
+Navigate to http://localhost:8080 or [EC2 public DNS]:8080 and check that the 'Hello Application' works. 

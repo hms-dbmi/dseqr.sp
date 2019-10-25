@@ -1,13 +1,13 @@
 proxy:
   hide-navbar: true
   landing-page: /
-  port: 80
+  port: 8080
   authentication: none
   # Docker configuration
   docker:
     internal-networking: true
   specs:
-  - id: drugseqr
+  - id: example
     display-name: drugseqr
     description: description of drugseqr
     container-image: drugseqr
@@ -25,6 +25,7 @@ proxy:
     container-image: openanalytics/shinyproxy-demo
     container-network: sp-example-net
 
+    
 logging:
   file:
     shinyproxy.log
