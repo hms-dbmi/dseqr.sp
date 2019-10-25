@@ -1,0 +1,30 @@
+proxy:
+  hide-navbar: true
+  landing-page: /
+  port: 80
+  authentication: none
+  # Docker configuration
+  docker:
+    internal-networking: true
+  specs:
+  - id: drugseqr
+    display-name: drugseqr
+    description: description of drugseqr
+    container-image: drugseqr
+    container-cmd: ["R", "-e", "drugseqr::run_drugseqr('/srv/drugseqr/example')"]
+    container-volumes: ["/srv/drugseqr:/srv/drugseqr"]
+    container-network: sp-example-net
+  - id: 01_hello
+    display-name: Hello Application
+    description: Application which demonstrates the basics of a Shiny app
+    container-cmd: ["R", "-e", "shinyproxy::run_01_hello()"]
+    container-image: openanalytics/shinyproxy-demo
+    container-network: sp-example-net
+  - id: 06_tabsets
+    container-cmd: ["R", "-e", "shinyproxy::run_06_tabsets()"]
+    container-image: openanalytics/shinyproxy-demo
+    container-network: sp-example-net
+
+logging:
+  file:
+    shinyproxy.log
