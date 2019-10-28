@@ -27,3 +27,5 @@ sudo docker run -it -v /var/run/docker.sock:/var/run/docker.sock --net sp-exampl
 ```
 
 Navigate to http://localhost:8080 or [EC2 public DNS]:8080 and check that the 'Hello Application' works. 
+
+At this point, you could [install nginx](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04), [add ssl certificates](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-18-04), and save an AMI image of your instance to [set up a scaled and load-balanced app](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-register-lbs-with-asg.html). See [nginx.conf](nginx.conf) for an example nginx configuration that redirects the landing page to a specific app.

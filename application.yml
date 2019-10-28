@@ -9,7 +9,7 @@ proxy:
   specs:
   - id: example
     display-name: drugseqr
-    description: description of drugseqr
+    description: Example of drugseqr application
     container-image: drugseqr
     container-cmd: ["R", "-e", "drugseqr::run_drugseqr('/srv/drugseqr/example')"]
     container-volumes: ["/srv/drugseqr:/srv/drugseqr"]
@@ -20,11 +20,6 @@ proxy:
     container-cmd: ["R", "-e", "shinyproxy::run_01_hello()"]
     container-image: openanalytics/shinyproxy-demo
     container-network: sp-example-net
-  - id: 06_tabsets
-    container-cmd: ["R", "-e", "shinyproxy::run_06_tabsets()"]
-    container-image: openanalytics/shinyproxy-demo
-    container-network: sp-example-net
-
     
 logging:
   file:
