@@ -2,6 +2,7 @@ proxy:
   hide-navbar: true
   landing-page: /
   port: 8080
+  template-path: ./
   authentication: none
   # Docker configuration
   docker:

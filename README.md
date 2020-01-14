@@ -12,7 +12,9 @@ cd drugseqr.sp
 wget https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/Dockerfile
 
 # customize application.yml before building based on the name of your app/authentication/etc.
+# app.html fixes mobile bootstrap breakpoints (shinyproxy#96)
 wget https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/application.yml
+wget https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/app.html
 sudo docker build -t drugseqr.sp .
 ```
 
