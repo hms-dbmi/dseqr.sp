@@ -1,6 +1,7 @@
 proxy:
   hide-navbar: true
   landing-page: /
+  heartbeat-timeout: 6000000
   port: 8080
   template-path: ./
   authentication: none
