@@ -12,7 +12,7 @@ proxy:
   - id: example
     display-name: drugseqr
     description: Example of drugseqr application
-    container-image: drugseqr
+    container-image: alexvpickering/drugseqr
     container-cmd: ["R", "-e", "drugseqr::run_drugseqr('example')"]
     container-volumes: ["/srv/drugseqr:/srv/drugseqr"]
     container-network: sp-example-net
