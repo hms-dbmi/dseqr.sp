@@ -1,7 +1,10 @@
 proxy:
   hide-navbar: true
   landing-page: /
+  # this keeps the app controls working for 24 hours
   container-wait-time: 86400000
+  # this stops app "gray-out" if e.g. switch tabs on mobile
+  heartbeat-timeout: 86400000
   port: 8080
   template-path: ./
   authentication: none
