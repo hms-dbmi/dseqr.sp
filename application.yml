@@ -25,7 +25,8 @@ proxy:
     container-cmd: ["R", "-e", "shinyproxy::run_01_hello()"]
     container-image: openanalytics/shinyproxy-demo
     container-network: sp-example-net
-
 logging:
   file:
     shinyproxy.log
+server:
+    servlet.session.timeout: 0
