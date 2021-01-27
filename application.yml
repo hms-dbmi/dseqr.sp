@@ -13,7 +13,7 @@ proxy:
     internal-networking: true
   specs:
   - id: example
-    display-name: alexvpickering/drugseqr
+    display-name: drugseqr
     description: Example of drugseqr application
     container-image: alexvpickering/drugseqr
     container-cmd: ["R", "-e", "drugseqr::run_drugseqr('example')"]
