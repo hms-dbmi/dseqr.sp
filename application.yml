@@ -8,7 +8,7 @@ proxy:
   port: 8080
   template-path: ./
   authentication: none
-  # for cognito authentication: uncomment, replace {} below and set authentication to openid
+  ## for cognito authentication: uncomment, replace {} below and set authentication to openid
   # openid:
   #   roles-claim: cognito:groups
   #   auth-url: https://{cognito_domain_prefix}.auth.{region}.amazoncognito.com/oauth2/authorize
