@@ -38,5 +38,5 @@ logging:
   file:
     shinyproxy.log
 server:
-    useForwardHeaders: true # won't redirect to http (need for cognito)
+    useForwardHeaders: true ## won't redirect to http (need for cognito)
     servlet.session.timeout: 0
