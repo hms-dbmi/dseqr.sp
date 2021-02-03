@@ -1,23 +1,23 @@
 proxy:
   hide-navbar: true
   landing-page: /
-  ## this keeps the app controls working for 24 hours
+  # this keeps the app controls working for 24 hours
   container-wait-time: 86400000
-  ## this stops app "gray-out" if e.g. switch tabs on mobile
+  # this stops app "gray-out" if e.g. switch tabs on mobile
   heartbeat-timeout: 86400000
   port: 8080
   template-path: ./
+  # for cognito authentication: replace {} below and set authentication to openid
   authentication: none
-  ## for cognito authentication: uncomment, replace {} below and set authentication to openid
-  # openid:
-  #   roles-claim: cognito:groups
-  #   auth-url: https://{auth_domain}/oauth2/authorize
-  #   token-url: https://{auth_domain}/oauth2/token
-  #   jwks-url: https://cognito-idp.{region}.amazonaws.com/{user_pool_id}/.well-known/jwks.json
-  #   logout-url: https://{auth_domain}/logout?response_type=code&client_id={client_id}&redirect_uri=https://{host_url}/login/oauth2/code/shinyproxy
-  #   client-id:
-  #   client-secret:
-  ## Docker configuration
+  openid:
+    roles-claim: cognito:groups
+    auth-url: https://{auth_domain}/oauth2/authorize
+    token-url: https://{auth_domain}/oauth2/token
+    jwks-url: https://cognito-idp.{region}.amazonaws.com/{user_pool_id}/.well-known/jwks.json
+    logout-url: https://{auth_domain}/logout?response_type=code&client_id={client_id}&redirect_uri=https://{host_url}/login/oauth2/code/shinyproxy
+    client-id:
+    client-secret:
+  # Docker configuration
   docker:
     internal-networking: true
   specs:
@@ -38,5 +38,5 @@ logging:
   file:
     shinyproxy.log
 server:
-    useForwardHeaders: true ## won't redirect to http (need for cognito)
+    useForwardHeaders: true # won't redirect to http (need for cognito)
     servlet.session.timeout: 0
