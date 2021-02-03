@@ -14,7 +14,7 @@ proxy:
   #   auth-url: https://{auth_domain}/oauth2/authorize
   #   token-url: https://{auth_domain}/oauth2/token
   #   jwks-url: https://cognito-idp.{region}.amazonaws.com/{user_pool_id}/.well-known/jwks.json
-  #   logout-url: https://{auth_domain}/logout?client_id={client_id}&logout_uri={host_url}
+  #   logout-url: https://{auth_domain}/logout?response_type=code&client_id={client_id}&redirect_uri=https://{host_url}/login/oauth2/code/shinyproxy
   #   client-id:
   #   client-secret:
   ## Docker configuration
