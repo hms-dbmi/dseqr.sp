@@ -11,10 +11,10 @@ proxy:
   ## for cognito authentication: uncomment, replace {} below and set authentication to openid
   # openid:
   #   roles-claim: cognito:groups
-  #   auth-url: https://{cognito_domain_prefix}.auth.{region}.amazoncognito.com/oauth2/authorize
-  #   token-url: https://{cognito_domain_prefix}.auth.{region}.amazoncognito.com/oauth2/token
-  #   jwks-url: https://cognito-idp.{region}.amazonaws.com/{userPoolId}/.well-known/jwks.json
-  #   logout-url: https://{cognito_domain_prefix}.auth.{region}.amazoncognito.com/logout?client_id={client_id}&logout_uri={your_host_url}
+  #   auth-url: https://{auth_domain}/oauth2/authorize
+  #   token-url: https://{auth_domain}/oauth2/token
+  #   jwks-url: https://cognito-idp.{region}.amazonaws.com/{user_pool_id}/.well-known/jwks.json
+  #   logout-url: https://{auth_domain}/logout?client_id={client_id}&logout_uri={host_url}
   #   client-id:
   #   client-secret:
   ## Docker configuration
