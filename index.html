@@ -40,7 +40,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
   <div th:if="${!displayAppLogos}" id="applist">
   <ul>
   <li th:each="app: ${apps}">
-  <a th:href="@{/app/}+${app.id}" th:text="${app.displayName == null} ? ${app.id} : ${app.displayName}"></a>
+  <a th:href="@{/app_direct/}+${app.id}" th:text="${app.displayName == null} ? ${app.id} : ${app.displayName}"></a>
   <br th:if="${app.description != null}" />
   <span th:if="${app.description != null}" th:utext="${app.description}"></span>
   </li>
@@ -55,7 +55,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
   <img th:if="${appLogos.get(app) != null}" th:src="${appLogos.get(app)}" style="height:30px;"></img>
   </div>
   <div class="media-body">
-  <a th:href="@{/app/}+${app.id}" th:text="${app.displayName == null} ? ${app.id} : ${app.displayName}"></a>
+  <a th:href="@{/app_direct/}+${app.id}" th:text="${app.displayName == null} ? ${app.id} : ${app.displayName}"></a>
   <br th:if="${app.description != null}" />
   <span th:if="${app.description != null}" th:utext="${app.description}"></span>
   </div>

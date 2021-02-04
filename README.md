@@ -16,6 +16,7 @@ wget https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/Dockerfile
 wget https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/application.yml
 wget https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/app.html
 wget https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/login.html
+wget https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/index.html
 sudo docker build -t drugseqr.sp .
 ```
 
