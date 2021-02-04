@@ -5,6 +5,7 @@ RUN wget https://www.shinyproxy.io/downloads/shinyproxy-2.3.0.jar -O /opt/shinyp
 COPY application.yml /opt/shinyproxy/application.yml
 COPY app.html /opt/shinyproxy/app.html
 COPY login.html /opt/shinyproxy/login.html
+COPY index.html /opt/shinyproxy/index.html
 
 WORKDIR /opt/shinyproxy/
 CMD ["java", "-jar", "/opt/shinyproxy/shinyproxy.jar"]

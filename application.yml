@@ -22,18 +22,20 @@ proxy:
     internal-networking: true
   specs:
   - id: example
-    display-name: drugseqr
-    description: Example of drugseqr application
+    display-name: Dseqr Demo
+    description: Dseqr application with demo data
     container-image: alexvpickering/drugseqr
     container-cmd: ["R", "-e", "drugseqr::run_drugseqr('example')"]
     container-volumes: ["/srv/drugseqr:/srv/drugseqr"]
     container-network: sp-example-net
-  - id: 01_hello
+    logo-url: https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/favicon.png
+  - id: hello
     display-name: Hello Application
     description: Application which demonstrates the basics of a Shiny app
     container-cmd: ["R", "-e", "shinyproxy::run_01_hello()"]
     container-image: openanalytics/shinyproxy-demo
     container-network: sp-example-net
+    logo-url: https://raw.githubusercontent.com/rstudio/shiny/master/man/figures/logo.png
 logging:
   file:
     shinyproxy.log
