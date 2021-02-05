@@ -6,6 +6,7 @@ COPY application.yml /opt/shinyproxy/application.yml
 COPY app.html /opt/shinyproxy/app.html
 COPY login.html /opt/shinyproxy/login.html
 COPY index.html /opt/shinyproxy/index.html
+COPY run.R /opt/shinyproxy/index.html
 
 WORKDIR /opt/shinyproxy/
 CMD ["java", "-jar", "/opt/shinyproxy/shinyproxy.jar"]
