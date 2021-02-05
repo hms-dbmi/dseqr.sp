@@ -21,24 +21,24 @@ proxy:
   docker:
     internal-networking: true
   specs:
-  - id: personal
+  - id: private
     display-name: dseqr
     description: your private dseqr workspace
     container-image: alexvpickering/drugseqr
     container-cmd: ["R", "-e", "drugseqr::run_drugseqr(Sys.getenv('SHINYPROXY_USERNAME'), logout_url='https://{host_url}/logout')"]
     container-volumes: ["/srv/drugseqr:/srv/drugseqr"]
     container-network: sp-example-net
-    logo-url: https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/favicon.png
-  - id: secret
-    display-name: dseqr secret
-    description: dseqr application with demo data
+    logo-url: https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/ninja.png
+  - id: admins
+    display-name: dseqr admins
+    description: dseqr application visible to admins
     container-image: alexvpickering/drugseqr
     container-cmd: ["R", "-e", "drugseqr::run_drugseqr('example', logout_url='https://{host_url}/logout')"]
     container-volumes: ["/srv/drugseqr:/srv/drugseqr"]
     container-network: sp-example-net
     logo-url: https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/ninja.svg
     access-groups: admins
-  - id: example
+  - id: demo
     display-name: dseqr demo
     description: dseqr application with demo data
     container-image: alexvpickering/drugseqr
