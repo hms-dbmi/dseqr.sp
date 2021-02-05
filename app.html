@@ -70,13 +70,16 @@
       float: none;
       margin: 0 auto;
   }
+  .no-dots {
+    background: white !important;
+  }
   </style>
 </head>
 <body>
 	<div th:replace="../fragments/navbar :: navbar"></div>
 
     <iframe id="shinyframe" th:src="${container}" width="100%" frameBorder="0"></iframe>
-    <div class="loading row">
+    <div class="loading row no-dots">
       <div class="lds-ripple col-lg-1 col-centered">
         <div></div>
         <div></div>
