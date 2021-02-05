@@ -25,7 +25,7 @@ proxy:
     display-name: Dseqr Secret
     description: Dseqr application with demo data
     container-image: alexvpickering/drugseqr
-    container-cmd: ["R", "-e", "source('run.R'); run_drugseqr('example')"]
+    container-cmd: ["R", "-e", "drugseqr::run_drugseqr('example', logout_url='https://{host_url}/logout')"]
     container-volumes: ["/srv/drugseqr:/srv/drugseqr"]
     container-network: sp-example-net
     logo-url: https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/ninja.svg
@@ -34,7 +34,7 @@ proxy:
     display-name: Dseqr Demo
     description: Dseqr application with demo data
     container-image: alexvpickering/drugseqr
-    container-cmd: ["R", "-e", "source('run.R'); run_drugseqr('example')"]
+    container-cmd: ["R", "-e", "drugseqr::run_drugseqr('example', logout_url='https://{host_url}/logout')"]
     container-volumes: ["/srv/drugseqr:/srv/drugseqr"]
     container-network: sp-example-net
     logo-url: https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/favicon.png
