@@ -28,7 +28,7 @@ proxy:
     container-cmd: ["R", "-e", "drugseqr::run_drugseqr(Sys.getenv('SHINYPROXY_USERNAME'), logout_url='https://{host_url}/logout')"]
     container-volumes: ["/srv/drugseqr:/srv/drugseqr"]
     container-network: sp-example-net
-    logo-url: https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/ninja.png
+    logo-url: https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/ninja.svg
   - id: admins
     display-name: dseqr admins
     description: dseqr application visible to admins
@@ -47,8 +47,8 @@ proxy:
     container-network: sp-example-net
     logo-url: https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/favicon.png
   - id: hello
-    display-name: Hello Application
-    description: Application which demonstrates the basics of a Shiny app
+    display-name: hello application
+    description: application which demonstrates the basics of a Shiny app
     container-cmd: ["R", "-e", "shinyproxy::run_01_hello()"]
     container-image: openanalytics/shinyproxy-demo
     container-network: sp-example-net
