@@ -53,6 +53,7 @@ proxy:
     container-image: openanalytics/shinyproxy-demo
     container-network: sp-example-net
     logo-url: https://raw.githubusercontent.com/rstudio/shiny/master/man/figures/logo.png
+    access-groups: admins
 logging:
   file:
     shinyproxy.log
