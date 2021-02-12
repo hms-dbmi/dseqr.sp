@@ -24,28 +24,28 @@ proxy:
   - id: private
     display-name: dseqr
     description: your private dseqr workspace
-    container-image: alexvpickering/drugseqr
-    container-cmd: ["R", "-e", "drugseqr::run_drugseqr(Sys.getenv('SHINYPROXY_USERNAME'), logout_url='https://{host_url}/logout')"]
-    container-volumes: ["/srv/drugseqr:/srv/drugseqr"]
+    container-image: alexvpickering/dseqr
+    container-cmd: ["R", "-e", "dseqr::run_dseqr(Sys.getenv('SHINYPROXY_USERNAME'), logout_url='https://{host_url}/logout')"]
+    container-volumes: ["/srv/dseqr:/srv/dseqr"]
     container-network: sp-example-net
-    logo-url: https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/ninja.svg
+    logo-url: https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/ninja.svg
   - id: admins
     display-name: dseqr admins
     description: dseqr application visible to admins
-    container-image: alexvpickering/drugseqr
-    container-cmd: ["R", "-e", "drugseqr::run_drugseqr('example', logout_url='https://{host_url}/logout')"]
-    container-volumes: ["/srv/drugseqr:/srv/drugseqr"]
+    container-image: alexvpickering/dseqr
+    container-cmd: ["R", "-e", "dseqr::run_dseqr('example', logout_url='https://{host_url}/logout')"]
+    container-volumes: ["/srv/dseqr:/srv/dseqr"]
     container-network: sp-example-net
-    logo-url: https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/ninja.svg
+    logo-url: https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/ninja.svg
     access-groups: admins
   - id: demo
     display-name: dseqr demo
     description: dseqr application with demo data
-    container-image: alexvpickering/drugseqr
-    container-cmd: ["R", "-e", "drugseqr::run_drugseqr('example', logout_url='https://{host_url}/logout')"]
-    container-volumes: ["/srv/drugseqr:/srv/drugseqr"]
+    container-image: alexvpickering/dseqr
+    container-cmd: ["R", "-e", "dseqr::run_dseqr('example', logout_url='https://{host_url}/logout')"]
+    container-volumes: ["/srv/dseqr:/srv/dseqr"]
     container-network: sp-example-net
-    logo-url: https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/favicon.png
+    logo-url: https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/favicon.png
   - id: hello
     display-name: hello application
     description: application which demonstrates the basics of a Shiny app

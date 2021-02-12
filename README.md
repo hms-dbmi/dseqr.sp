@@ -1,4 +1,4 @@
-# drugseqr.sp
+# dseqr.sp
 
 Create a docker network that ShinyProxy will use to communication with the Shiny containers and build the ShinyProxy image:
 
@@ -7,17 +7,17 @@ Create a docker network that ShinyProxy will use to communication with the Shiny
 sudo docker network create sp-example-net
 
 # get Dockerfile for ShinyProxy image
-mkdir drugseqr.sp
-cd drugseqr.sp
-wget https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/Dockerfile
+mkdir dseqr.sp
+cd dseqr.sp
+wget https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/Dockerfile
 
 # customize application.yml before building based on the name of your app/authentication/etc.
 # app.html fixes mobile bootstrap breakpoints (shinyproxy#96)
-wget https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/application.yml
-wget https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/app.html
-wget https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/login.html
-wget https://raw.githubusercontent.com/hms-dbmi/drugseqr.sp/master/index.html
-sudo docker build -t drugseqr.sp .
+wget https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/application.yml
+wget https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/app.html
+wget https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/login.html
+wget https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/index.html
+sudo docker build -t dseqr.sp .
 ```
 
 Optionally, double check that ShinyProxy works:
@@ -27,7 +27,7 @@ Optionally, double check that ShinyProxy works:
 sudo docker pull openanalytics/shinyproxy-demo
 
 # run shiny proxy container
-sudo docker run -it -v /var/run/docker.sock:/var/run/docker.sock --net sp-example-net -p 8080:8080 drugseqr.sp
+sudo docker run -it -v /var/run/docker.sock:/var/run/docker.sock --net sp-example-net -p 8080:8080 dseqr.sp
 ```
 
 Navigate to http://localhost:8080 or [EC2 public DNS]:8080 and check that the 'Hello Application' works. 
