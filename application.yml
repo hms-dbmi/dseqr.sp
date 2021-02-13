@@ -22,16 +22,16 @@ proxy:
     internal-networking: true
   specs:
   - id: private
-    display-name: dseqr
-    description: your private dseqr workspace
+    display-name: Dseqr - Private
+    description: Your private dseqr workspace
     container-image: alexvpickering/dseqr
     container-cmd: ["R", "-e", "dseqr::run_dseqr(Sys.getenv('SHINYPROXY_USERNAME'), logout_url='https://{host_url}/logout')"]
     container-volumes: ["/srv/dseqr:/srv/dseqr"]
     container-network: sp-example-net
     logo-url: https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/ninja.svg
   - id: admins
-    display-name: dseqr admins
-    description: dseqr application visible to admins
+    display-name: Dseqr - Admins
+    description: Dseqr application visible to admins
     container-image: alexvpickering/dseqr
     container-cmd: ["R", "-e", "dseqr::run_dseqr('example', logout_url='https://{host_url}/logout')"]
     container-volumes: ["/srv/dseqr:/srv/dseqr"]
@@ -39,16 +39,16 @@ proxy:
     logo-url: https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/ninja.svg
     access-groups: admins
   - id: demo
-    display-name: dseqr demo
-    description: dseqr application with demo data
+    display-name: Dseqr - Demo
+    description: Dseqr application with demo data
     container-image: alexvpickering/dseqr
     container-cmd: ["R", "-e", "dseqr::run_dseqr('example', logout_url='https://{host_url}/logout')"]
     container-volumes: ["/srv/dseqr:/srv/dseqr"]
     container-network: sp-example-net
     logo-url: https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/favicon.png
   - id: hello
-    display-name: hello application
-    description: application which demonstrates the basics of a Shiny app
+    display-name: Hello Application
+    description: Application which demonstrates the basics of a Shiny app
     container-cmd: ["R", "-e", "shinyproxy::run_01_hello()"]
     container-image: openanalytics/shinyproxy-demo
     container-network: sp-example-net
