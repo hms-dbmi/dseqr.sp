@@ -37,6 +37,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
       padding: 5px 12px 5px 0px;
       cursor: default;
       color: #333;
+      text-decoration: none !important;
     }
 
     .brand-icons img {
@@ -61,17 +62,22 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <span class="navbar-brand" title="dseqr">
+        <a class="navbar-brand" title="dseqr" href="/">
           <span class="brand-icons">
             <img src="https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/favicon.png">
             <span>seqr</span>
           </span>
-        </span>
+        </a>
       </div>
       <div id="bs-navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right" data-tabsetid="tabset" id="tabs">
           <li data-toggle="collapse" data-target=".navbar-collapse.in">
             <a target="_top" href="/logout">Logout</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" data-tabsetid="tabset" id="tabs">
+          <li data-toggle="collapse" data-target=".navbar-collapse.in">
+            <a target="_blank" href="https://docs.dseqr.com">Docs</a>
           </li>
         </ul>
       </div>
