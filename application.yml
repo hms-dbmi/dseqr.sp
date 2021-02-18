@@ -1,8 +1,6 @@
 proxy:
   hide-navbar: true
   landing-page: /
-  # if no heartbeat keep container for 2 hours
-  heartbeat-timeout: 1200000
   port: 8080
   template-path: ./
   # for cognito authentication: replace {} below and set authentication to openid
