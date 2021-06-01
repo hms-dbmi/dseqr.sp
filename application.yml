@@ -29,7 +29,7 @@ proxy:
     display-name: Dseqr - Admins
     description: Dseqr application visible to admins
     container-image: alexvpickering/dseqr
-    container-cmd: ["R", "-e", "dseqr::run_dseqr('example', logout_url='https://{host_url}/logout')"]
+    container-cmd: ["R", "-e", "dseqr::run_dseqr('example', logout_url='https://{host_url}/logout', is_example=TRUE)"]
     container-volumes: ["/srv/dseqr:/srv/dseqr"]
     container-network: sp-example-net
     logo-url: https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/ninja.svg
@@ -38,7 +38,7 @@ proxy:
     display-name: Dseqr - Demo
     description: Dseqr application with demo data
     container-image: alexvpickering/dseqr
-    container-cmd: ["R", "-e", "dseqr::run_dseqr('example', logout_url='https://{host_url}/logout')"]
+    container-cmd: ["R", "-e", "dseqr::run_dseqr('example', logout_url='https://{host_url}/logout', is_example=TRUE)"]
     container-volumes: ["/srv/dseqr:/srv/dseqr"]
     container-network: sp-example-net
     logo-url: https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/favicon.png
