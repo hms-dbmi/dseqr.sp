@@ -25,15 +25,15 @@ proxy:
     container-volumes: ["/srv/dseqr:/srv/dseqr"]
     container-network: sp-example-net
     logo-url: https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/ninja.svg
-  - id: admins
-    display-name: Dseqr - Admins
-    description: Dseqr application visible to admins
+  - id: sjiald
+    display-name: Dseqr - SJIA-LD
+    description: Dseqr application with SJIA-LD data
     container-image: alexvpickering/dseqr
-    container-cmd: ["R", "-e", "dseqr::run_dseqr('example', logout_url='https://{host_url}/logout', is_example=TRUE)"]
+    container-cmd: ["R", "-e", "dseqr::run_dseqr('sjiald', logout_url='https://{host_url}/logout')"]
     container-volumes: ["/srv/dseqr:/srv/dseqr"]
     container-network: sp-example-net
     logo-url: https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/ninja.svg
-    access-groups: admins
+    access-groups: sjiald
   - id: demo
     display-name: Dseqr - Demo
     description: Dseqr application with demo data
@@ -42,14 +42,6 @@ proxy:
     container-volumes: ["/srv/dseqr:/srv/dseqr"]
     container-network: sp-example-net
     logo-url: https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/favicon.png
-  - id: hello
-    display-name: Hello Application
-    description: Application which demonstrates the basics of a Shiny app
-    container-cmd: ["R", "-e", "shinyproxy::run_01_hello()"]
-    container-image: openanalytics/shinyproxy-demo
-    container-network: sp-example-net
-    logo-url: https://raw.githubusercontent.com/rstudio/shiny/master/man/figures/logo.png
-    access-groups: admins
 logging:
   file:
     shinyproxy.log
