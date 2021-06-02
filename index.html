@@ -31,15 +31,18 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
     body {
       font-family: Raleway,Helvetica Neue,Helvetica,Arial,sans-serif;
     }
-
     .brand-icons {
       background-color: white;
       padding: 5px 12px 5px 0px;
-      cursor: default;
+      cursor: pointer;
       color: #333;
       text-decoration: none !important;
     }
-
+    .secondary-navbar {
+      background-color: slategray;
+      height: 51px;
+      margin-bottom: 50px;
+    }
     .brand-icons img {
       width: 24px;
       height: 24px;
@@ -47,8 +50,9 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
     }
     .navbar-default {
       background-color: white;
-      margin-bottom: 50px;
+      margin-bottom: 0px;
     }
+
   </style>
   </head>
   <body>
@@ -83,6 +87,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
       </div>
     </div>
   </nav>
+  <div class="secondary-navbar"></div>
   <!-- content -->
   <div th:if="${!displayAppLogos}" id="applist">
   <ul>
