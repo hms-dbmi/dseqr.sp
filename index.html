@@ -56,6 +56,18 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
   </style>
   </head>
   <body>
+  <script>
+    $.ajax({
+      type: "GET",
+      url: "/app_direct/demo",
+      success: function(a) { console.log(a)}
+    });
+    $.ajax({
+      type: "GET",
+      url: "/app_direct/private",
+      success: function(a) { console.log(a)}
+    });
+    </script>
   <!-- navigation bar -->
   <nav class="navbar navbar-default navbar-static-top">
     <div class="container-fluid">
