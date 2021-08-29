@@ -21,7 +21,7 @@ proxy:
     display-name: Dseqr - Private
     description: Your private dseqr workspace
     container-image: alexvpickering/dseqr
-    container-cmd: ["Rscript", "run.R ${SHINYPROXY_USERNAME} {host_url}"]
+    container-cmd: ["Rscript", "run.R", "private", "{host_url}"]
     container-volumes: ["/srv/dseqr:/srv/dseqr"]
     container-network: sp-example-net
     logo-url: https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/ninja.svg
@@ -29,7 +29,7 @@ proxy:
     display-name: Dseqr - SJIA-LD
     description: Dseqr application with SJIA-LD data
     container-image: alexvpickering/dseqr
-    container-cmd: ["Rscript", "run.R sjiald {host_url}"]
+    container-cmd: ["Rscript", "run.R", "sjiald", "{host_url}"]
     container-volumes: ["/srv/dseqr:/srv/dseqr"]
     container-network: sp-example-net
     logo-url: https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/ninja.svg
@@ -38,7 +38,7 @@ proxy:
     display-name: Dseqr - Demo
     description: Dseqr application with demo data
     container-image: alexvpickering/dseqr
-    container-cmd: ["Rscript", "run.R example {host_url}"]
+    container-cmd: ["Rscript", "run.R", "example", "{host_url}"]
     container-volumes: ["/srv/dseqr:/srv/dseqr"]
     container-network: sp-example-net
     logo-url: https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/favicon.png
