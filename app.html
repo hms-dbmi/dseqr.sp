@@ -27,11 +27,12 @@
 	<title th:text="${appTitle}"></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"/>
-  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/favicon.png"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+  	<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/favicon.png"/>
 	<link rel="stylesheet" media="screen" th:href="@{${bootstrapCss}}" />
 	<link rel="stylesheet" media="screen" th:href="@{/css/default.css}"/>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script th:src="@{${bootstrapJs}}"></script>
+  	<script th:src="@{${bootstrapJs}}"></script>
 </head>
 <body>
 	<div th:replace="../fragments/navbar :: navbar"></div>
