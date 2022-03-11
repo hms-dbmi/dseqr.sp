@@ -3,6 +3,7 @@ proxy:
   landing-page: /
   port: 8080
   template-path: ./
+  default-webSocket-reconnection-mode: Auto
   # for cognito authentication: replace {} below and set authentication to openid
   authentication: none
   openid:
@@ -36,7 +37,7 @@ proxy:
     access-groups: sjiald
   - id: demo
     display-name: Dseqr - Demo
-    description: Dseqr application with demo data
+    description: "Read-only Dseqr application to explore demo and reference datasets:"
     container-image: alexvpickering/dseqr
     container-cmd: ["Rscript", "run.R", "example", "{host_url}"]
     container-volumes: ["/srv/dseqr:/srv/dseqr"]

@@ -126,6 +126,24 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
   <a th:href="@{/app/}+${app.id}" th:text="${app.displayName == null} ? ${app.id} : ${app.displayName}"></a>
   <br th:if="${app.description != null}" />
   <span th:if="${app.description != null}" th:utext="${app.description}"></span>
+  <th:block th:if="${app.id == 'demo'}">
+  <br/><br/>
+  <ul>
+    <li><span><b>GSE134809</b> - paired Chrohn's inflamed/uninflamed ileum</span> <a target="_blank" href="https://www.cell.com/cell/fulltext/S0092-8674(19)30896-7"> (paper) </a></li>
+  <li>
+    <span><img src="https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/Azimuth.png" style="height:15px;width:15px;"></img> - </span>
+    <span><b>scMuscle</b> - The Cornell single-cell muscle project</span>
+    <a target="_blank" href="https://www.nature.com/articles/s42003-021-02810-x"> (paper) </a>
+  </li>
+  <li>
+    <span><img src="https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/Azimuth.png" style="height:15px;width:15px;"></img> - </span>
+    <span><b>T-cell effectorness</b> - naive and memory CD4+ T-cells stimulated with Th1/Th2/Th17/iTreg cytokines</span>
+    <a target="_blank" href="https://www.nature.com/articles/s41467-020-15543-y"> (paper) </a>
+  </li>
+  </ul>
+  <img src="https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/Azimuth.png" style="height:15px;width:15px;"></img>
+  <span> = available for reference-based analysis using Seurat or Symphony</span>
+  </th:block>
   </div>
   </div>
   </div>
