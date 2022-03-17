@@ -37,7 +37,7 @@ proxy:
     access-groups: sjiald
   - id: demo
     display-name: Dseqr - Demo
-    description: "Read-only Dseqr application to explore demo and reference datasets:"
+    description: "Read-only Dseqr application to explore demo and <a href='https://docs.dseqr.com/docs/single-cell/reference-based/#available-references' target='_blank'>reference datasets</a>"
     container-image: alexvpickering/dseqr
     container-cmd: ["Rscript", "run.R", "example", "{host_url}"]
     container-volumes: ["/srv/dseqr:/srv/dseqr"]
