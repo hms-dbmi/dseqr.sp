@@ -1,40 +1,55 @@
 <!--
-  ShinyProxy
-Copyright (C) 2016-2020 Open Analytics
-===========================================================================
-  This program is free software: you can redistribute it and/or modify
-it under the terms of the Apache License as published by
-The Apache Software Foundation, either version 2 of the License, or
-(at your option) any later version.
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-Apache License for more details.
-You should have received a copy of the Apache License
-along with this program.  If not, see <http://www.apache.org/licenses/>
-  -->
-  <!DOCTYPE html>
-  <html xmlns:th="http://www.thymeleaf.org"
-xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-  <head lang="en">
+
+    ShinyProxy
+
+    Copyright (C) 2016-2024 Open Analytics
+
+    ===========================================================================
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the Apache License as published by
+    The Apache Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    Apache License for more details.
+
+    You should have received a copy of the Apache License
+    along with this program.  If not, see <http://www.apache.org/licenses/>
+
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head lang="en">
   <title>Dseqr - Workspaces</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"/>
-  <link rel="stylesheet" media="screen" th:href="@{${bootstrapCss}}" />
-  <link rel="stylesheet" media="screen" th:href="@{/css/default.css}"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script th:src="@{${bootstrapJs}}"></script>
-  <script th:src="@{/webjars/js-cookie/2.2.1/js.cookie.min.js}"></script>
-  <script th:src="@{/js/new_version_check.js}"></script>
-  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/favicon.png"/>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link rel="icon" th:href="@{${resourcePrefix} + '/favicon'}">
+  <link media="screen" rel="stylesheet" th:href="@{${resourcePrefix} + ${bootstrapCss}}" />
+  <link media="screen" rel="stylesheet" th:href="@{${resourcePrefix} + '/css/default.css'}" />
+  <script th:src="@{${resourcePrefix} + ${jqueryJs}}"></script>
+  <script th:src="@{${resourcePrefix} + ${bootstrapJs}}"></script>
+  <script th:src="@{${resourcePrefix} + ${handlebars}}"></script>
+  <script th:src="@{${resourcePrefix} + '/js/shiny.app.js' }"></script>
+  <script th:src="@{${resourcePrefix} + '/js/shiny.api.js' }"></script>
+  <script th:src="@{${resourcePrefix} + '/js/shiny.connections.js'}"></script>
+  <script th:src="@{${resourcePrefix} + '/js/shiny.instances.js' }"></script>
+  <script th:src="@{${resourcePrefix} + '/js/shiny.ui.js' }"></script>
+  <script th:src="@{${resourcePrefix} + '/js/shiny.common.js'}"></script>
+  <script th:src="@{${resourcePrefix} + '/handlebars/precompiled.js'}"></script>
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/favicon.png" />
   <style>
     body {
-      font-family: Raleway,Helvetica Neue,Helvetica,Arial,sans-serif;
+      font-family: Raleway, Helvetica Neue, Helvetica, Arial, sans-serif;
     }
+
     #applist {
       padding-top: 50px !important;
     }
+
     .brand-icons {
       background-color: white;
       padding: 5px 12px 5px 0px;
@@ -42,41 +57,32 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
       color: #333;
       text-decoration: none !important;
     }
+
     .secondary-navbar {
       background-color: slategray;
       height: 51px;
       margin-bottom: 50px;
     }
+
     .brand-icons img {
       width: 24px;
       height: 24px;
       margin-top: -3px;
     }
+
     .navbar-default {
       background-color: white;
       margin-bottom: 0px;
     }
-
   </style>
-  </head>
-  <body>
-  <script>
-    $.ajax({
-      type: "GET",
-      url: "/app_direct/demo",
-      success: function(a) { console.log("demo pre-loaded")}
-    });
-    $.ajax({
-      type: "GET",
-      url: "/app_direct/private",
-      success: function(a) { console.log("private pre-loaded")}
-    });
-  </script>
-  <!-- navigation bar -->
+</head>
+
+<body>
   <nav class="navbar navbar-default navbar-static-top">
     <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-expanded="false">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar"
+          aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -104,32 +110,24 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
     </div>
   </nav>
   <div class="secondary-navbar"></div>
-  <!-- content -->
-  <div th:if="${!displayAppLogos}" id="applist">
-  <ul>
-  <li th:each="app: ${apps}">
-  <a th:href="@{/app/}+${app.id}" th:text="${app.displayName == null} ? ${app.id} : ${app.displayName}"></a>
-  <br th:if="${app.description != null}" />
-  <span th:if="${app.description != null}" th:utext="${app.description}"></span>
-  </li>
-  </ul>
+  <div class="container" id="applist">
+    <div class="row" style="margin-top:20px;" th:each="app: ${ungroupedApps}">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="media">
+          <div class="media-left">
+            <th:block th:if="${appLogos.get(app) != null}" th:with="logo=${appLogos.get(app)}">
+              <img th:src="${logo.src}" style="height:30px;width:30px;">
+            </th:block>
+          </div>
+          <div class="media-body">
+            <a th:href="@{/app/}+${app.id}" th:text="${app.displayName == null} ? ${app.id} : ${app.displayName}"></a>
+            <br th:if="${app.description != null}" />
+            <span th:if="${app.description != null}" th:utext="${app.description}"></span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</body>
 
-  <div th:if="${displayAppLogos}" class="container" id="applist">
-  <div class="row" style="margin-top:20px;" th:each="app: ${apps}">
-  <div class="col-md-6 col-md-offset-3">
-  <div class="media">
-  <div class="media-left">
-  <img th:if="${appLogos.get(app) != null}" th:src="${appLogos.get(app)}" style="height:30px;width:30px;"></img>
-  </div>
-  <div class="media-body">
-  <a th:href="@{/app/}+${app.id}" th:text="${app.displayName == null} ? ${app.id} : ${app.displayName}"></a>
-  <br th:if="${app.description != null}" />
-  <span th:if="${app.description != null}" th:utext="${app.description}"></span>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </body>
-  </html>
+</html>

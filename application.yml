@@ -1,8 +1,10 @@
 proxy:
+  container-log-path: ./container-logs
   hide-navbar: true
   landing-page: /
   port: 8080
   template-path: ./
+  heartbeat-timeout: 10800000 # 3 hours
   default-webSocket-reconnection-mode: Auto
   # for cognito authentication: replace {} below and set authentication to openid
   authentication: none
@@ -22,7 +24,9 @@ proxy:
     display-name: Dseqr - Private
     description: Your private dseqr workspace
     container-image: alexvpickering/dseqr
-    container-cmd: ["Rscript", "run.R", "private", "{host_url}"]
+    container-cmd: ["R", "-e", "dseqr:::run_dseqr_shinyproxy('private', '{host_url}')"]
+    minimum-seats-available: 1
+    allow-container-re-use: false
     container-volumes: ["/srv/dseqr:/srv/dseqr"]
     container-network: sp-example-net
     logo-url: https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/ninja.svg
@@ -30,7 +34,7 @@ proxy:
     display-name: Dseqr - SJIA-LD
     description: Dseqr application with SJIA-LD data
     container-image: alexvpickering/dseqr
-    container-cmd: ["Rscript", "run.R", "sjiald", "{host_url}"]
+    container-cmd: ["R", "-e", "dseqr:::run_dseqr_shinyproxy('sjiald', '{host_url}')"]
     container-volumes: ["/srv/dseqr:/srv/dseqr"]
     container-network: sp-example-net
     logo-url: https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/ninja.svg
@@ -39,13 +43,16 @@ proxy:
     display-name: Dseqr - Demo
     description: "Read-only Dseqr application to explore demo and <a href='https://docs.dseqr.com/docs/single-cell/reference-based/#available-references' target='_blank'>reference datasets</a>"
     container-image: alexvpickering/dseqr
-    container-cmd: ["Rscript", "run.R", "example", "{host_url}"]
+    minimum-seats-available: 1
+    allow-container-re-use: false
+    container-cmd: ["R", "-e", "dseqr:::run_dseqr_shinyproxy('example', '{host_url}')"]
+    # container-cmd: ["Rscript", "run.R", "example", "{host_url}"]
     container-volumes: ["/srv/dseqr:/srv/dseqr"]
     container-network: sp-example-net
     logo-url: https://raw.githubusercontent.com/hms-dbmi/dseqr.sp/master/favicon.png
 logging:
   file:
-    shinyproxy.log
+    name: shinyproxy.log
 server:
     forward-headers-strategy: native # won't redirect to http (need for cognito)
     servlet.session.timeout: 0
